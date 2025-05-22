@@ -27,10 +27,10 @@
                         <table id="myTable" class="table table-striped">
                             <thead>
                                 <th>No.</th>
-                                <th>nomer_surat</th>
-                                <th>tanggal_permintaan</th>
-                                <th>unit_kerja</th>
-                                <th>tujuan</th>
+                                <th>Nomer Surat</th>
+                                <th>Tanggal Permintaan</th>
+                                <th>Unit Kerja</th>
+                                <th>Tujuan</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>

@@ -25,6 +25,7 @@
                             <th>Manufacture</th>
                             <th>Productname</th>
                             <th>Serial Number</th>
+                            <th>Serial Number BIOS</th>
                             <th>Lokasi</th>
                             <th>IP Address</th>
                             <th>created_at</th>
@@ -38,6 +39,7 @@
                                     <td>{{ $komputer->manufacture }}</td>
                                     <td>{{ $komputer->productname }}</td>
                                     <td>{{ $komputer->sn }}</td>
+                                    <td>{{ $komputer->snbios }}</td>
                                     <td>{{ $komputer->lokasi }}</td>
                                     <td>{{ $komputer->ipaddress }}</td>
                                     <td>{{ $komputer->created_at }}</td>

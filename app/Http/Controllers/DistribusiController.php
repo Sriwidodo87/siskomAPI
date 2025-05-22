@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Distribusi;
+use Illuminate\Support\Facades\DB;
 
 
 class DistribusiController extends Controller
@@ -23,7 +24,7 @@ class DistribusiController extends Controller
      */
     public function create()
     {
-         $page_title ="Penambahan Barang  ";
+         $page_title ="Distribusi  Barang  ";
         return view('distribusi.create',compact('page_title'));
     }
 
@@ -33,6 +34,8 @@ class DistribusiController extends Controller
     public function store(Request $request)
     {
          //
+
+
         $request->validate([
             'nomer_surat'=> 'required',
             'tanggal_permintaan'=> 'required',
@@ -82,9 +85,9 @@ class DistribusiController extends Controller
      */
     public function edit(string $id)
     {
-        $Distribusis = Distribusi::findOrFail($id);
+        $Distribusi = Distribusi::findOrFail($id);
         $page_title ="List Barang  ";
-        return view('distribusi.edit',compact('Distribusis','page_title'));
+        return view('distribusi.edit',compact('Distribusi','page_title'));
     }
 
     /**
