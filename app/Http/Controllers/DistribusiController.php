@@ -34,10 +34,15 @@ class DistribusiController extends Controller
     public function store(Request $request)
     {
          //
+        $d = now()->format('m');
+        $ym= now()->format('Y/m');
+        $maxID= Distribusi::whereMonth('tanggal_permintaan',$d)->count();
+        $nextID = $maxID + 1 ;
+        $nomer_surat= $ym.'-'. sprintf("%03s",$nextID);
 
 
         $request->validate([
-            'nomer_surat'=> 'required',
+
             'tanggal_permintaan'=> 'required',
             'unit_kerja'=> 'required',
             'jenis_distribusi'=> 'required',
@@ -51,7 +56,7 @@ class DistribusiController extends Controller
             'pemohon'=> 'required',
         ]);
         Distribusi::create([
-            'nomer_surat'=> $request->nomer_surat,
+            'nomer_surat'=> $nomer_surat,
             'tanggal_permintaan'=> $request->tanggal_permintaan,
             'unit_kerja'=> $request->unit_kerja,
             'jenis_distribusi'=> $request->jenis_distribusi,
@@ -73,8 +78,6 @@ class DistribusiController extends Controller
      */
     public function show(string $id)
     {
-
-
         $Distribusis = Distribusi::findOrFail($id);
         $page_title ="List Barang  ";
         return view('distribusi.show',compact('Distribusis','page_title'));
@@ -86,7 +89,7 @@ class DistribusiController extends Controller
     public function edit(string $id)
     {
         $Distribusi = Distribusi::findOrFail($id);
-        $page_title ="List Barang  ";
+        $page_title ="Update Distribusi  ";
         return view('distribusi.edit',compact('Distribusi','page_title'));
     }
 
@@ -96,7 +99,7 @@ class DistribusiController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nomer_surat'=> 'required',
+
             'tanggal_permintaan'=> 'required',
             'unit_kerja'=> 'required',
             'jenis_distribusi'=> 'required',
@@ -125,7 +128,7 @@ class DistribusiController extends Controller
             'pemohon'=>$request-> pemohon,
         ]);
         return redirect()->route('distribusi.index')
-        ->with('success','Distribusi  created successfully');
+        ->with('success','Distribusi  Update successfully');
     }
 
     /**

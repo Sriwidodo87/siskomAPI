@@ -1,28 +1,31 @@
 @extends('layouts.master')
-@section('title', 'Product')
+@section('title', 'Distribusi')
 @section('content')
     <div class="section-body">
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        {{-- <h4>test</h4> --}}
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success col-12"  x-data="{ show: true }"
+                                x-show="show"
+                                x-transition
+                                x-init="setTimeout(() => show = false, 2000)">
+                                <p>{{ $message }}</p>
+                                </div>
+                            @endif
                     </div>
                     <div class="row">
                         <div class="col-lg-12 margin-tb">
                             <div class="pull-left">
-                                <h2></h2>
+                                {{-- <h2> testst</h2> --}}
                             </div>
-                            <div class="pull-right">
+                            <div class="pull-right col-6">
                               <a class="btn btn-success" href="{{ route('distribusi.create')}}"> Create </a>
                             </div>
                         </div>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                        </div>
-                    @endif
+
                     <div class="card-body">
                         <table id="myTable" class="table table-striped">
                             <thead>
@@ -84,6 +87,12 @@
 @endsection
 @section('scripts')
     <script>
-
+    $(document).ready(function() {
+            $('#myTable').DataTable();
+            $('.delete').on('click', function () {
+                const id = this.id;
+                $('#deleteModal').attr('action', '{{ route("distribusi.destroy", "") }}' + '/' + id);
+            });
+        });
     </script>
 @endsection
