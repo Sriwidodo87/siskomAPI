@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\DistribusiProduct;
+use App\Models\Distribusi;
 
-class Distribusi extends Controller
+
+class DistribusiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-         $distribusiproducts = DistribusiProduct::all();
+         $Distribusis = Distribusi::all();
         $page_title ="List Barang  ";
-        return view('distribusi.index',compact('distribusiproducts','page_title'));
+        return view('distribusi.index',compact('Distribusis','page_title'));
     }
 
     /**
@@ -46,7 +47,7 @@ class Distribusi extends Controller
             'tanggal_selesai'=> 'required',
             'pemohon'=> 'required',
         ]);
-        DistribusiProduct::create([
+        Distribusi::create([
             'nomer_surat'=> $request->nomer_surat,
             'tanggal_permintaan'=> $request->tanggal_permintaan,
             'unit_kerja'=> $request->unit_kerja,
@@ -71,9 +72,9 @@ class Distribusi extends Controller
     {
 
 
-        $distribusiproducts = DistribusiProduct::findOrFail($id);
+        $Distribusis = Distribusi::findOrFail($id);
         $page_title ="List Barang  ";
-        return view('distribusi.show',compact('distribusiproducts','page_title'));
+        return view('distribusi.show',compact('Distribusis','page_title'));
     }
 
     /**
@@ -81,9 +82,9 @@ class Distribusi extends Controller
      */
     public function edit(string $id)
     {
-        $distribusiproducts = DistribusiProduct::findOrFail($id);
+        $Distribusis = Distribusi::findOrFail($id);
         $page_title ="List Barang  ";
-        return view('distribusi.edit',compact('distribusiproducts','page_title'));
+        return view('distribusi.edit',compact('Distribusis','page_title'));
     }
 
     /**
@@ -105,8 +106,8 @@ class Distribusi extends Controller
             'tanggal_selesai'=> 'required',
             'pemohon'=> 'required',
         ]);
-         $distribusiproducts = DistribusiProduct::findOrFail($id);
-        $distribusiproducts->update([
+         $Distribusis = Distribusi::findOrFail($id);
+        $Distribusis->update([
             'nomer_surat'=> $request->nomer_surat,
             'tanggal_permintaan'=> $request->tanggal_permintaan,
             'unit_kerja'=> $request->unit_kerja,
@@ -129,10 +130,11 @@ class Distribusi extends Controller
      */
     public function destroy(string $id)
     {
-         $distribusiproducts = DistribusiProduct::findOrFail($id);
-         $distribusiproducts->delete();
+         $Distribusis = Distribusi::findOrFail($id);
+         $Distribusis->delete();
 
         return redirect()->route('distribusi.index')
         ->with('success','Distribusi deleted successfully');
     }
 }
+

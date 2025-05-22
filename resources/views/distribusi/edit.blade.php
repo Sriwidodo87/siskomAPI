@@ -10,6 +10,6 @@ test </h1>
 
 @section('scripts')
     <script>
-        $('.dropify').dropify();
+
     </script>
 @endsection

@@ -1,24 +1,30 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Stisla</a>
+            <a href="index.html">IT Infrastruktur </a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="index.html"> </a>
         </div>
         <ul class="sidebar-menu">
 
-            {{-- <li class="menu-header">Dashboard</li>
+             {{-- <li class="menu-header">Dashboard</li> --}}
             <li class="dropdown {{ request()->routeIs('home') ? 'active':'' }}">
                 <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="dropdown {{ request()->is('suppliers/*') || request()->is('suppliers') ? 'active':'' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-user"></i><span>Suppliers</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ request()->routeIs('supplier.create') ? 'active':'' }}"><a class="nav-link" href="{{ route('supplier.create') }}">Add Supplier</a></li>
-                    <li class="{{ request()->routeIs('supplier.index') ? 'active':'' }}"><a class="nav-link" href="{{ route('supplier.index') }}">All Suppliers</a></li>
-                </ul>
+             {{-- <li class="menu-header">Distribusi</li> --}}
+           <li class="dropdown {{ request()->is('distribusi/*') || request()->is('distribusi') ? 'active':'' }}">
+                <a href="{{ route('distribusi.index') }}" class="nav-link"><i class="fas fa-fire"></i><span>Distribusi</span></a>
             </li>
+
+            {{-- <li class="dropdown {{ request()->is('distribusi/*') || request()->is('distribusi') ? 'active':'' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-user"></i><span>Distribusi</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ request()->routeIs('distribusi.create') ? 'active':'' }}"><a class="nav-link" href="{{ route('distribusi.create') }}">Add distribusi</a></li>
+                    <li class="{{ request()->routeIs('distribusi.index') ? 'active':'' }}"><a class="nav-link" href="{{ route('distribusi.index') }}">All Suppliers</a></li>
+                </ul>
+            </li> --}}
+            {{--
             <li class="dropdown {{ request()->is('customers/*') || request()->is('customers') ? 'active':'' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-user"></i><span>Customers</span></a>
                 <ul class="dropdown-menu">
@@ -127,15 +133,15 @@
             {{-- </li> --}}
             {{-- Log out  --}}
             {{-- <li class="menu-header">Log Out</li> --}}
-            <li>
-                <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+            {{-- <li>
+                <a href="" class="nav-link" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i><span>Log Out</span>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    <form id="logout-form" action="" method="POST" class="d-none">
                         @csrf
                     </form>
             </a>
-            </li>
+            </li> --}}
         </ul>
     </aside>
 </div>

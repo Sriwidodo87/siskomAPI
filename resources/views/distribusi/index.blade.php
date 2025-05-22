@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>{{ $page_title }}</h4>
+                        {{-- <h4>test</h4> --}}
                     </div>
                     <div class="row">
                         <div class="col-lg-12 margin-tb">
@@ -14,9 +14,7 @@
                                 <h2></h2>
                             </div>
                             <div class="pull-right">
-                              @can('product-create')
-                              {{-- <a class="btn btn-success" href="{{ route('product.create') }}"> Create New Product</a> --}}
-                              @endcan
+                              <a class="btn btn-success" href="{{ route('distribusi.create')}}"> Create </a>
                             </div>
                         </div>
                     </div>
@@ -28,36 +26,31 @@
                     <div class="card-body">
                         <table id="myTable" class="table table-striped">
                             <thead>
-                                <th>Sl No.</th>
-                                <th>Name</th>
-                                <th>Thumbnail</th>
-                                <th>Category</th>
-                                <th>Supplier</th>
-                                <th>Brand</th>
+                                <th>No.</th>
+                                <th>nomer_surat</th>
+                                <th>tanggal_permintaan</th>
+                                <th>unit_kerja</th>
+                                <th>tujuan</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($products as $product)
+                                @foreach ($Distribusis as $distribusi)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-
-                                        <td>{{ $product->name }}</td>
-                                        <td>
-                                            <img src="{{ url('/uploads/product/'.$product->image) }}" alt="Product Img" width="60">
-                                        </td>
-                                        <td>{{ $product->category->name }}</td>
-                                        <td>{{ $product->supplier->name }}</td>
-                                        <td>{{ $product->brand }}</td>
+                                        <td>{{ $distribusi->nomer_surat }}</td>
+                                        <td>{{ $distribusi->tanggal_permintaan }}</td>
+                                        <td>{{ $distribusi->unit_kerja }}</td>
+                                        <td>{{ $distribusi->tujuan }}</td>
                                         <td>
                                             <a class="btn btn-primary"
-                                                href="{{ route('product.edit', $product->id) }}">Edit</a> |
+                                                href="{{ route('distribusi.edit', $distribusi->id) }}">Edit</a> |
                                             <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                data-target="#exampleModal" id="{{ $product->id }}">
+                                                data-target="#exampleModal" id="{{ $distribusi->id }}">
                                                 Delete
                                             </button>
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -91,12 +84,6 @@
 @endsection
 @section('scripts')
     <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-            $('.delete').on('click', function () {
-                const id = this.id;
-              //  $('#deleteModal').attr('action', '{{ route("product.destroy", "") }}' + '/' + id);
-            });
-        });
+
     </script>
 @endsection

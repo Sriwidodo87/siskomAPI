@@ -2,7 +2,6 @@
 @section('title', 'Create | Product')
 @section('content')
     <div class="section-body">
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -11,7 +10,7 @@
                         <div class="row">
                             <div class="col-lg-12 margin-tb">
                                 <div class="pull-left">
-                                    <h2>Create New User</h2>
+                                    {{-- <h2>Create New User</h2> --}}
                                 </div>
                                 <div class="pull-right">
                                     {{-- <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a> --}}
@@ -31,57 +30,103 @@
                         </ul>
                       </div>
                     @endif
-                    {{-- <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('distribusi.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name="name" id="name" class="form-control">
+                                <label>Nomer Surat</label>
+                                <input type="text" name="nomer_surat" id="nomer_surat" class="form-control" readonly value="">
                             </div>
-                            @error('name')
+                            @error('nomer_surat')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             <div class="form-group">
-                                <label>Product Image</label>
-                                <input class="dropify" type="file" name="image" id="image" class="form-control">
+                                <label>Tanggal Permintaan</label>
+                                <input type="date" name="tanggal_permintaan" id="tanggal_permintaan" class="form-control">
                             </div>
-                            @error('image')
+                            @error('tanggal_permintaan')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             <div class="form-group">
-                                <label>Category</label>
-                                <select class="form-control" name="category_id" id="category_id">
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label>Unit Kerja</label>
+                                <input type="text" name="unit_kerja" id="unit_kerja" class="form-control">
                             </div>
-                            @error('category_id')
+                            @error('unit_kerja')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             <div class="form-group">
-                                <label>Supplier</label>
-                                <select class="form-control" name="supplier_id" id="supplier_id">
-                                    @foreach ($suppliers as $supplier)
-                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label>Jenis Distribusi</label>
+                                <input type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control">
                             </div>
-                            @error('supplier_id')
+                            @error('jenis_distribusi')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             <div class="form-group">
-                                <label>Brand (optional)</label>
-                                <input type="text" name="brand" id="brand" class="form-control">
+                                <label>Status Barang</label>
+                                <input type="text" name="status_barang" id="status_barang" class="form-control">
                             </div>
-                            @error('brand')
+                            @error('status_barang')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
+                            <div class="form-group">
+                                <label>Alasan</label>
+                                <textarea type="text" name="alasan" id="alasan" class="form-control">
+                                </textarea>
+                            </div>
+                            @error('alasan')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <div class="form-group">
+                                <label>Tujuan</label>
+                                <input type="text" name="tujuan" id="tujuan" class="form-control">
+                            </div>
+                            @error('tujuan')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <div class="form-group">
+                                <label>Kategori Distribusi</label>
+                                <input type="text" name="kategori_distribusi" id="kategori_distribusi" class="form-control">
+                            </div>
+                            @error('kategori_distribusi')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <div class="form-group">
+                                <label>Prosedur</label>
+                                <input type="text" name="prosedur" id="prosedur" class="form-control">
+                            </div>
+                            @error('prosedur')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <div class="form-group">
+                                <label>Tanggal Mulai</label>
+                                <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control">
+                            </div>
+                            @error('tanggal_mulai')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <div class="form-group">
+                                <label>Tanggal Selesai</label>
+                                <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="form-control">
+                            </div>
+                            @error('tanggal_selesai')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <div class="form-group">
+                                <label>Pemohon</label>
+                                <input type="text" name="pemohon" id="pemohon" class="form-control">
+                            </div>
+                            @error('pemohon')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+
+
+
+
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
-                    </form> --}}
+                    </form>
                 </div>
             </div>
         </div>
