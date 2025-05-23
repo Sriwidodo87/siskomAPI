@@ -1,9 +1,5 @@
 @extends('layouts.master')
-<<<<<<< HEAD
 @section('title', 'Distribusi Barang')
-=======
-@section('title', 'Distribusi')
->>>>>>> df605c6eb76048f5ab32fcacba09bb1244368eca
 @section('content')
     <div class="section-body">
         <div class="row">
@@ -55,7 +51,7 @@
                                                 data-target="#exampleModal" id="{{ $distribusi->id }}">
                                                 Delete
                                             </button>
-                                            |<a id="print" href="{{ route('distribusi.show', $distribusi->id) }}"  class="btn btn-info"><i class="fas fa-print"></i></a
+                                            |<a id="print" href="" data-kd_trx="{{ $distribusi->id }}" class="btn btn-info"><i class="fas fa-print"></i></a
                                         </td>
                                     </tr>
                                 @endforeach
@@ -100,7 +96,7 @@
                     <td>
                         <div>
                             <center>
-                             15151555   KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
+                                KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
                                 DIREKTORAT JENDRAL PELAYANAN KESEHATAN<br>
                                 RSUP PROF. DR. R. D. KANDOU MANADO <br>
                                 JL.RAYA TANAWANGKO PO.BOX 102 MANADO <br>
@@ -137,7 +133,7 @@
                 <td>
                     <div align="right">
                         <h3>
-                            <p id="no_form"></p>
+                            <p id="nomer_surat"></p>
                         </h3>
 
 
@@ -154,99 +150,76 @@
                 <td>Tanggal Permintaan</td>
                 <td>:</td>
                 <td>
-                    <p id="trx_date2">
+                    <p id="tanggal_permintaan">
                     </p>
                 </td>
             </tr>
             <tr>
-                <td> Reference</td>
+                <td> Unit Kerja</td>
                 <td>:</td>
                 <td>
-                    <p id="reference2"></p>
+                    <p id="unit_kerja"> </p>
                 </td>
             </tr>
             <tr>
-                <td> Ke Unit kerja </td>
+                <td>Jenis Distribusi</td>
                 <td>:</td>
                 <td>
-                    <p id="nm_instansi"> </p>
-                </td>
-                <td>
-                    <p id="sub_instansi"> </p>
+                    <p id="jenis_distribusi"> </p>
                 </td>
             </tr>
             <tr>
-                <td> Status</td>
+                <td> Status Barang </td>
                 <td> :</td>
                 <td>
-                    <p id="status2"></p>
+                    <p id="status_barang"></p>
                 </td>
             </tr>
             <tr>
-                <td>Produk </td>
+                <td>Alasan </td>
                 <td>:</td>
                 <td>
-                    <p id="produk2"></p>
+                    <p id="alasan"></p>
                 </td>
                 <td></td>
                 <td></td>
-                <td>QTY</td>
+                <td>tujuan</td>
                 <td>
                     :
                 </td>
                 <td>
-                    <p id="qty2"></p>
+                    <p id="tujuan"></p>
                 </td>
             </tr>
             <tr>
-                <td>Serial Number </td>
+                <td>Kategori Distribusi </td>
                 <td>:</td>
                 <td>
-                    <p id="sn2"></p>
+                    <p id="kategori_distribusi"></p>
                 </td>
             </tr>
             <tr>
-                <td>Alasan</td>
+                <td>Prosedur</td>
                 <td>:</td>
                 <td>
-                    <p id="alasan2"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>Kategori</td>
-                <td>:</td>
-                <td>
-                    <p id="kat2"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>Kebijakan</td>
-                <td>:</td>
-                <td>
-                    <p id="kebijakan2"></p>
+                    <p id="prosedur"></p>
                 </td>
             </tr>
             <tr>
                 <td>Tanggal Mulai</td>
                 <td>:</td>
                 <td>
-                    <p id="tgl_mulai2"></p>
+                    <p id="tanggal_mulai"></p>
                 </td>
             </tr>
             <tr>
                 <td>Tanggal Selesai</td>
                 <td>:</td>
                 <td>
-                    <p id="tgl_selesai2"></p>
+                    <p id="tanggal_selesai"></p>
                 </td>
-            </tr>
-            <tr>
-                <td>Diketahui Oleh</td>
-                <td>:</td>
-                <td>
-                    <p id="diket2"></p>
-                </td>
-            </tr>
+
+
         </table>
 
         <table width=100%>
@@ -265,7 +238,7 @@
 
                             <tr>
                                 <td>
-
+                                    <p id="pemohon"></p>
                                 </td>
                             </tr>
                             <tr>
@@ -311,11 +284,11 @@
 
                             <tr>
                                 <td>
-                                    <p id="ki2"></p>
+                                    <p id=""></p>
                                 </td>
                             </tr>
                             <tr>
-                                <td id="nip2">NIP</td>
+                                <td id="">NIP</td>
 
                             </tr>
                         </table>
@@ -355,25 +328,42 @@
 @endsection
 @section('scripts')
     <script>
-<<<<<<< HEAD
         $(document).ready(function() {
              // print
         $('a#print').on('click', function(e) {
             e.preventDefault();
-            // let kd_trx = $(this).data('kd_trx');
-                getprint();
+
+              const id = $(this).data('kd_trx');
+                // console.log(id);
+
             // ajax request
             $.ajax({
-                url: "",
-                type: "post",
-                data: {
+                url:'{{ route("distribusi.show", "") }}' + '/' + id,
 
+                type: "get",
+                data: {
+                    id:id
                 },
                 dataType: "json",
                 success: function(response) {
 
+                    $('#nomer_surat').html('F/09R3/' + response.nomer_surat);
+                    $('#tanggal_permintaan').html(response.tanggal_permintaan);
+                    $('#unit_kerja').html( response.unit_kerja);
 
-                    getprint();
+                    $('#jenis_distribusi').html(response.jenis_distribusi);
+                    $('#status_barang').html(response.status_barang);
+                    $('#alasan').html(response.alasan);
+                    $('#tujuan').html(response.tujuan);
+                    $('#kategori_distribusi').html(response.kategori_distribusi);
+                    $('#prosedur').html(response.prosedur);
+                    $('#tanggal_mulai').html(response.tanggal_mulai);
+                    $('#tanggal_selesai').html(response.tanggal_selesai);
+                    $('#pemohon').html(response.pemohon);
+
+
+
+                   getprint();
                     // $('#23').html(response.reference);
                     // You will get response from your PHP page (what you echo or print)
                 },
@@ -396,14 +386,5 @@
         }
 
 
-=======
-    $(document).ready(function() {
-            $('#myTable').DataTable();
-            $('.delete').on('click', function () {
-                const id = this.id;
-                $('#deleteModal').attr('action', '{{ route("distribusi.destroy", "") }}' + '/' + id);
-            });
-        });
->>>>>>> df605c6eb76048f5ab32fcacba09bb1244368eca
     </script>
 @endsection

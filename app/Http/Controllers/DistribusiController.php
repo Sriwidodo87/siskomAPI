@@ -15,7 +15,7 @@ class DistribusiController extends Controller
     public function index()
     {
          $Distribusis = Distribusi::all();
-        $page_title ="List Barang  ";
+        $page_title ="List Distribusi  ";
         return view('distribusi.index',compact('Distribusis','page_title'));
     }
 
@@ -78,9 +78,11 @@ class DistribusiController extends Controller
      */
     public function show(string $id)
     {
-        $Distribusis = Distribusi::findOrFail($id);
-        $page_title ="List Barang  ";
-        return view('distribusi.index',compact('Distribusis','page_title'));
+        $data = Distribusi::findOrFail($id);
+        $page_title ="List ID   ";
+        // return view('distribusi.show',compact('data','page_title'));
+
+       return response()->json($data);
     }
 
     /**

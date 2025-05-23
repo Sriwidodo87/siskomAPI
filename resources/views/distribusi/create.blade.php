@@ -64,7 +64,13 @@
                             </div>
                             <div class="form-group col-6">
                                 <label>Status Barang</label>
-                                <input type="text" name="status_barang" id="status_barang" class="form-control">
+                               <select name="status_barang" id="status_barang" class="form-control" required>
+                                            <option value=""></option>
+
+                                            <option value="BARU"> BARU</option>
+                                            <option value="PINDAH"> PINDAH</option>
+
+                                        </select>
                             @error('status_barang')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -86,14 +92,23 @@
                             </div>
                             <div class="form-group col-4">
                                 <label>Kategori Distribusi</label>
-                                <input type="text" name="kategori_distribusi" id="kategori_distribusi" class="form-control">
+                                <select name="kategori_distribusi" id="kategori_distribusi" class="form-control">
+                                            <option value=""></option>
+                                            <option value="MENDESAK"> MENDESAK</option>
+                                            <option value="TIDAK MENDESAK"> TIDAK MENDESAK</option>
+
+                                        </select>
                             @error('kategori_distribusi')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             </div>
                             <div class="form-group col-4">
                                 <label>Prosedur</label>
-                                <input type="text" name="prosedur" id="prosedur" class="form-control">
+                                <select name="prosedur" id="prosedur" class="form-control">
+                                            <option value=""></option>
+                                            <option value="TIDAK ADA">TIDAK ADA</option>
+                                            <option value="ADA">ADA</option>
+                                        </select>
                             @error('prosedur')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
