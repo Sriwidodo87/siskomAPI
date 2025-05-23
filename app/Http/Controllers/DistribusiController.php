@@ -77,7 +77,7 @@ class DistribusiController extends Controller
 
         $Distribusis = Distribusi::findOrFail($id);
         $page_title ="List Barang  ";
-        return view('distribusi.show',compact('Distribusis','page_title'));
+        return view('distribusi.index',compact('Distribusis','page_title'));
     }
 
     /**

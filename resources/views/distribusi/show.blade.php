@@ -1,64 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Distribusi Barang')
+@section('title', '')
 @section('content')
-    <div class="section-body">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        {{-- <h4>test</h4> --}}
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 margin-tb">
-                            <div class="pull-left">
-                                <h2></h2>
-                            </div>
-                            <div class="pull-right">
-                              <a class="btn btn-success" href="{{ route('distribusi.create')}}"> Create </a>
-                            </div>
-                        </div>
-                    </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                        </div>
-                    @endif
-                    <div class="card-body">
-                        <table id="myTable" class="table table-striped">
-                            <thead>
-                                <th>No.</th>
-                                <th>Nomer Surat</th>
-                                <th>Tanggal Permintaan</th>
-                                <th>Unit Kerja</th>
-                                <th>Tujuan</th>
-                                <th>Action</th>
-                            </thead>
-                            <tbody>
-                                @foreach ($Distribusis as $distribusi)
-                                    <tr>
-                                        <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $distribusi->nomer_surat }}</td>
-                                        <td>{{ $distribusi->tanggal_permintaan }}</td>
-                                        <td>{{ $distribusi->unit_kerja }}</td>
-                                        <td>{{ $distribusi->tujuan }}</td>
-                                        <td>
-                                            <a class="btn btn-primary"
-                                                href="{{ route('distribusi.edit', $distribusi->id) }}">Edit</a> |
-                                            <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                data-target="#exampleModal" id="{{ $distribusi->id }}">
-                                                Delete
-                                            </button>
-                                            |<a id="print" href="{{ route('distribusi.show', $distribusi->id) }}"  class="btn btn-info"><i class="fas fa-print"></i></a
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div id="tampilan_print" style="display:none">
         <style>
@@ -93,7 +35,7 @@
                     <td>
                         <div>
                             <center>
-                             15151555   KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
+                               sri widododod KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
                                 DIREKTORAT JENDRAL PELAYANAN KESEHATAN<br>
                                 RSUP PROF. DR. R. D. KANDOU MANADO <br>
                                 JL.RAYA TANAWANGKO PO.BOX 102 MANADO <br>
@@ -323,70 +265,8 @@
 
     </div>
     <iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
-    <!-- Modal -->
-    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <form id="deleteModal" method="POST">
-                @csrf
-                @method('DELETE')
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure you want to delete this data?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div> --}}
 
 @endsection
 @section('scripts')
-    <script>
-        $(document).ready(function() {
-             // print
-        $('a#print').on('click', function(e) {
-            e.preventDefault();
-            // let kd_trx = $(this).data('kd_trx');
-                getprint();
-            // ajax request
-            $.ajax({
-                url: "",
-                type: "post",
-                data: {
 
-                },
-                dataType: "json",
-                success: function(response) {
-
-
-                    getprint();
-                    // $('#23').html(response.reference);
-                    // You will get response from your PHP page (what you echo or print)
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus, errorThrown);
-                }
-            });
-        });
-        })
-
-        function getprint() {
-
-        $('#tampilan_print').hide()
-            // print()
-            let isi = document.getElementById('tampilan_print').innerHTML;
-            // window.frames["print_frame"].document.title = document.title;
-             window.frames["print_frame"].document.body.innerHTML = isi;
-            window.frames["print_frame"].window.focus();
-            window.frames["print_frame"].window.print();
-        }
-
-
-    </script>
 @endsection
