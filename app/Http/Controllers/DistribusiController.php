@@ -14,7 +14,7 @@ class DistribusiController extends Controller
      */
     public function index()
     {
-         $Distribusis = Distribusi::all();
+        $Distribusis = Distribusi::orderBy('created_at', 'desc')->get();
         $page_title ="List Distribusi  ";
         return view('distribusi.index',compact('Distribusis','page_title'));
     }
@@ -24,7 +24,7 @@ class DistribusiController extends Controller
      */
     public function create()
     {
-         $page_title ="Distribusi  Barang  ";
+         $page_title ="Create Distribusi";
         return view('distribusi.create',compact('page_title'));
     }
 

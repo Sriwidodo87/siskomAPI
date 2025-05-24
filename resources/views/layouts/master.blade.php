@@ -20,7 +20,11 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <!-- fix cloumn datatables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css">
+
+
+
     <link href="{{ asset('assets/modules/select2/dist/css/select2.min.css')}}" rel="stylesheet" />
+
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -43,8 +47,6 @@
 <body>
     <div id="app">
 
-            {{-- @yield('content') --}}
-
             <div class="main-wrapper main-wrapper-1">
                 <div class="navbar-bg"></div>
 
@@ -55,8 +57,6 @@
                 <!-- {{-- sidebar section start --}} -->
                 @include('partials.sidebar')
                 <!-- {{-- sidebar section end --}} -->
-
-
 
                 <!-- Main Content -->
                 <div class="main-content">
@@ -72,31 +72,36 @@
                     </div>
                 </footer>
             </div>
-        {{-- @endguest --}}
+
     </div>
 
-     <!-- General JS Scripts -->
-  <script src="assets/modules/jquery.min.js"></script>
-  <script src="assets/modules/popper.js"></script>
-  <script src="assets/modules/tooltip.js"></script>
-  <script src="assets/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="assets/modules/moment.min.js"></script>
-  <script src="assets/js/stisla.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
+    <!-- General JS Scripts -->
+    <script src="{{ asset('assets/modules/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/popper.js') }}"></script>
+    <script src="{{ asset('assets/modules/tooltip.js') }}"></script>
+    <script src="{{ asset('assets/modules/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/stisla.js') }}"></script>
 
-  <!-- JS Libraies -->
-  <script src="assets/modules/datatables/datatables.min.js"></script>
-  <script src="assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-  <script src="assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
-  <script src="assets/modules/jquery-ui/jquery-ui.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="{{ asset('assets/modules/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/chart.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/owlcarousel2/dist/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/summernote/summernote-bs4.js') }}"></script>
+    <script src="{{ asset('assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/select2/dist/js/select2.min.js')}}"></script>
+   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <!-- Page Specific JS File -->
-  <script src="assets/js/page/modules-datatables.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="{{ asset('assets/plugins/dropify/js/dropify.min.js') }}"></script>
+    <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>  -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
 
-  <!-- Template JS File -->
-  <script src="assets/js/scripts.js"></script>
-  <script src="assets/js/custom.js"></script>
+    <!-- Template JS File -->
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

@@ -46,12 +46,15 @@
                                         <td>{{ $distribusi->tujuan }}</td>
                                         <td>
                                             <a class="btn btn-primary"
-                                                href="{{ route('distribusi.edit', $distribusi->id) }}">Edit</a> |
-                                            <button type="button" class="btn btn-danger delete" data-toggle="modal"
+                                                href="{{ route('distribusi.edit', $distribusi->id) }}">Edit</a>
+                                            {{-- <a  class="btn btn-danger delete"
+                                                data-toggle="modal"
                                                 data-target="#exampleModal" id="{{ $distribusi->id }}">
-                                                Delete
-                                            </button>
-                                            |<a id="print" href="" data-kd_trx="{{ $distribusi->id }}" class="btn btn-info"><i class="fas fa-print"></i></a
+                                                <i class="fas fa-trash" style="color:rgb(250, 250, 250)"></i>
+                                                </a> --}}
+                                            <a id="print" href="" data-kd_trx="{{ $distribusi->id }}" class="btn btn-info">
+                                                <i class="fas fa-print"></i>
+                                            </a
                                         </td>
                                     </tr>
                                 @endforeach
@@ -329,6 +332,13 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
+
+            //datatable
+            $('#myTable').DataTable();
+            let column = this;
+            // Create input element
+            let input = document.createElement('input');
+
              // print
         $('a#print').on('click', function(e) {
             e.preventDefault();

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Create | Distribusi')
 @section('content')
+ <section class="section">
     <div class="section-body">
         <div class="row">
             <div class="col-12">
@@ -13,7 +14,7 @@
                                     {{-- <h2>Create New User</h2> --}}
                                 </div>
                                 <div class="pull-right">
-                                    <a class="btn  btn-primary" href="{{ route('distribusi.index') }}"> Back</a>
+                                    <a class="btn btn-primary" href="{{ route('distribusi.index') }}"> Back</a>
                                 </div>
                             </div>
                         </div>
@@ -43,21 +44,21 @@
                             </div>
                             <div class="form-group col-4 ">
                                 <label>Tanggal Permintaan</label>
-                                <input type="date" name="tanggal_permintaan" id="tanggal_permintaan" class="form-control">
+                                <input type="date" name="tanggal_permintaan" id="tanggal_permintaan" class="form-control" required>
                             @error('tanggal_permintaan')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             </div>
                             <div class="form-group col-4">
                                 <label>Unit Kerja</label>
-                                <input type="text" name="unit_kerja" id="unit_kerja" class="form-control">
+                                <input type="text" name="unit_kerja" id="unit_kerja" class="form-control" required>
                             @error('unit_kerja')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             </div>
                             <div class="form-group col-6">
                                 <label>Jenis Distribusi</label>
-                                <input type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control">
+                                <input type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" required>
                             @error('jenis_distribusi')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -66,10 +67,8 @@
                                 <label>Status Barang</label>
                                <select name="status_barang" id="status_barang" class="form-control" required>
                                             <option value=""></option>
-
-                                            <option value="BARU"> BARU</option>
-                                            <option value="PINDAH"> PINDAH</option>
-
+                                            <option value="BARU">BARU</option>
+                                            <option value="PINDAH">PINDAH</option>
                                         </select>
                             @error('status_barang')
                                 <p class="text-danger">{{ $message }}</p>
@@ -77,7 +76,7 @@
                             </div>
                             <div class="form-group col-12">
                                 <label>Alasan</label>
-                                <textarea type="text" name="alasan" id="alasan" class="form-control">
+                                <textarea type="text" name="alasan" id="alasan" class="form-control" required>
                                 </textarea>
                             @error('alasan')
                                 <p class="text-danger">{{ $message }}</p>
@@ -85,18 +84,17 @@
                             </div>
                             <div class="form-group col-4">
                                 <label>Tujuan</label>
-                                <input type="text" name="tujuan" id="tujuan" class="form-control">
+                                <input type="text" name="tujuan" id="tujuan" class="form-control" required>
                             @error('tujuan')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             </div>
                             <div class="form-group col-4">
                                 <label>Kategori Distribusi</label>
-                                <select name="kategori_distribusi" id="kategori_distribusi" class="form-control">
+                                <select name="kategori_distribusi" id="kategori_distribusi" class="form-control" required>
                                             <option value=""></option>
                                             <option value="MENDESAK"> MENDESAK</option>
                                             <option value="TIDAK MENDESAK"> TIDAK MENDESAK</option>
-
                                         </select>
                             @error('kategori_distribusi')
                                 <p class="text-danger">{{ $message }}</p>
@@ -104,7 +102,7 @@
                             </div>
                             <div class="form-group col-4">
                                 <label>Prosedur</label>
-                                <select name="prosedur" id="prosedur" class="form-control">
+                                <select name="prosedur" id="prosedur" class="form-control" required>
                                             <option value=""></option>
                                             <option value="TIDAK ADA">TIDAK ADA</option>
                                             <option value="ADA">ADA</option>
@@ -115,21 +113,21 @@
                             </div>
                             <div class="form-group col-6">
                                 <label>Tanggal Mulai</label>
-                                <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control">
+                                <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control" required>
                             @error('tanggal_mulai')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             </div>
                             <div class="form-group col-6">
                                 <label>Tanggal Selesai</label>
-                                <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="form-control">
+                                <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="form-control" required>
                             @error('tanggal_selesai')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             </div>
                             <div class="form-group col-12">
                                 <label>Pemohon</label>
-                                <input type="text" name="pemohon" id="pemohon" class="form-control">
+                                <input type="text" name="pemohon" id="pemohon" class="form-control" required>
                             @error('pemohon')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -150,6 +148,8 @@
 
 @section('scripts')
     <script>
+          $(document).ready(function() {
 
+        });
     </script>
 @endsection
