@@ -93,22 +93,22 @@
                 <tr>
                     <td>
                         <div align="left">
-                            <img src="" class="img_header" style="height: 75px;">
+                            <img src="{{asset('assets/img/kandou1.jpg')}}" class="img_header" style="height:70px">
                         </div>
                     </td>
                     <td>
                         <div>
                             <center>
-                                KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
+                                {{-- KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
                                 DIREKTORAT JENDRAL PELAYANAN KESEHATAN<br>
                                 RSUP PROF. DR. R. D. KANDOU MANADO <br>
-                                JL.RAYA TANAWANGKO PO.BOX 102 MANADO <br>
+                                JL.RAYA TANAWANGKO PO.BOX 102 MANADO <br> --}}
                             </center>
                         </div>
                     </td>
                     <td>
                         <div align="right">
-                            <img src=" " class="img_header" style="height: 75px;">
+                             <img src="{{asset('assets/img/kandou2.jpg')}}" class="img_header" style="height:70px">
                         </div>
                     </td>
                 </tr>
@@ -165,7 +165,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Jenis Distribusi</td>
+                <td>Pemindahan / Penambahan</td>
                 <td>:</td>
                 <td>
                     <p id="jenis_distribusi"> </p>
@@ -195,14 +195,14 @@
                 </td>
             </tr>
             <tr>
-                <td>Kategori Distribusi </td>
+                <td>Kategori</td>
                 <td>:</td>
                 <td>
                     <p id="kategori_distribusi"></p>
                 </td>
             </tr>
             <tr>
-                <td>Prosedur</td>
+                <td>Kebijakan / Prosedur yang mendukung*</td>
                 <td>:</td>
                 <td>
                     <p id="prosedur"></p>

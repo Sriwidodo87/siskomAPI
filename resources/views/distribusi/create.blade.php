@@ -57,8 +57,8 @@
                             @enderror
                             </div>
                             <div class="form-group col-6">
-                                <label>Jenis Distribusi</label>
-                                <input type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" required>
+                                <label>Pemindahan / Penambahan</label>
+                                <input type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" placeholder="Pemindahan / Penambahan Printer " required>
                             @error('jenis_distribusi')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror

@@ -58,7 +58,7 @@
                             @enderror
                             </div>
                             <div class="form-group col-6">
-                                <label>Jenis Distribusi</label>
+                                <label>Pemindahan / Penambahan</label>
                                 <input type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" value="{{$Distribusi->jenis_distribusi}}">
                             @error('jenis_distribusi')
                                 <p class="text-danger">{{ $message }}</p>

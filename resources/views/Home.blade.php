@@ -25,7 +25,7 @@
                             <th>Manufacture</th>
                             <th>Productname</th>
                             <th>Serial Number</th>
-                            <th>Serial Number BIOS</th>
+                            <th>SN BIOS</th>
                             <th>Lokasi</th>
                             <th>IP Address</th>
                             <th>created_at</th>
