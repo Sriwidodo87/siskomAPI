@@ -59,14 +59,12 @@
 @endsection
 @section('scripts')
 <script>
-$(document).ready(function(){
-            $('#myTable').DataTable();
-            let column = this;
-            // Create input element
-            let input = document.createElement('input');
-            $("#myTable tr").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-});
+
+      $(document).ready(function() {
+        $('#myTable').DataTable();
+
+    });
+
+
 </script>
 @endsection

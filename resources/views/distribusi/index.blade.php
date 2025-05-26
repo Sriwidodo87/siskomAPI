@@ -70,6 +70,7 @@
         <style>
             @page {
                 margin-left: 2cm;
+                margin-top:0.1cm;
             }
 
             .font_header_kop {
@@ -93,23 +94,25 @@
                 <tr>
                     <td>
                         <div align="left">
-                            <img src="{{asset('assets/img/kandou1.jpg')}}" class="img_header" style="height:70px">
+                            <img src="../assets/img/kandou1.jpg" class="img_header" style="height:75 px;">
+                            {{-- <img src="{{asset('assets/img/kandou1.jpg')}}" style="height:75 px;"> --}}
                         </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div>
                             <center>
-                                {{-- KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
+                                KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
                                 DIREKTORAT JENDRAL PELAYANAN KESEHATAN<br>
                                 RSUP PROF. DR. R. D. KANDOU MANADO <br>
-                                JL.RAYA TANAWANGKO PO.BOX 102 MANADO <br> --}}
+                                JL.RAYA TANAWANGKO PO.BOX 102 MANADO <br>
                             </center>
                         </div>
-                    </td>
+                    </td> --}}
                     <td>
                         <div align="right">
-                             <img src="{{asset('assets/img/kandou2.jpg')}}" class="img_header" style="height:70px">
-                        </div>
+                             <img src="../assets/img/kandou2.jpg" class="img_header" style="height:75 px;">
+                             {{-- <img src="{{asset('assets/img/kandou2.jpg')}}" style="height:75 px;" > --}}
+                   </div>
                     </td>
                 </tr>
             </table>
@@ -124,13 +127,11 @@
             <tr>
                 <td>
                     <div align="right">
-
                     </div>
 
                 </td>
                 <td>
                     <div align="center">
-
                     </div>
                 </td>
                 <td>
@@ -138,8 +139,6 @@
                         <h3>
                             <p id="nomer_surat"></p>
                         </h3>
-
-
                     </div>
                 </td>
             </tr>
@@ -149,8 +148,8 @@
 
 
         <table id="mytable">
-            <tr>
-                <td>Tanggal Permintaan</td>
+            <tr >
+                <td style="font-size:1.0em;">Tanggal Permintaan</td>
                 <td>:</td>
                 <td>
                     <p id="tanggal_permintaan">
@@ -287,11 +286,11 @@
 
                             <tr>
                                 <td>
-                                    <p id=""></p>
+                                    <p id="">Patrick M. Andries, ST, MBA, QWP</p>
                                 </td>
                             </tr>
                             <tr>
-                                <td id="">NIP</td>
+                                <td id="">NIK. 1990052720170510895</td>
 
                             </tr>
                         </table>
