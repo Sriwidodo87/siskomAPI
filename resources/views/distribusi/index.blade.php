@@ -52,7 +52,7 @@
                                                 data-target="#exampleModal" id="{{ $distribusi->id }}">
                                                 <i class="fas fa-trash" style="color:rgb(250, 250, 250)"></i>
                                                 </a> --}}
-                                            <a id="print" href="" data-kd_trx="{{ $distribusi->id }}" class="btn btn-info">
+                                            <a id="print" href="" data-id="{{ $distribusi->id }}" class="btn btn-info">
                                                 <i class="fas fa-print"></i>
                                             </a
                                         </td>
@@ -94,7 +94,7 @@
                 <tr>
                     <td>
                         <div align="left">
-                            <img src="../assets/img/kandou1.jpg" class="img_header" style="height:75 px;">
+                            <img src="../assets/img/kandou1.jpg" style="height:75 px;">
                             {{-- <img src="{{asset('assets/img/kandou1.jpg')}}" style="height:75 px;"> --}}
                         </div>
                     </td>
@@ -110,7 +110,7 @@
                     </td> --}}
                     <td>
                         <div align="right">
-                             <img src="../assets/img/kandou2.jpg" class="img_header" style="height:75 px;">
+                             <img src="../assets/img/kandou2.jpg" style="height:75 px;">
                              {{-- <img src="{{asset('assets/img/kandou2.jpg')}}" style="height:75 px;" > --}}
                    </div>
                     </td>
@@ -342,7 +342,7 @@
         $('a#print').on('click', function(e) {
             e.preventDefault();
 
-              const id = $(this).data('kd_trx');
+              const id = $(this).data('id');
                 // console.log(id);
 
             // ajax request
@@ -388,8 +388,8 @@
         $('#tampilan_print').hide()
             // print()
             let isi = document.getElementById('tampilan_print').innerHTML;
-            // window.frames["print_frame"].document.title = document.title;
-             window.frames["print_frame"].document.body.innerHTML = isi;
+            window.frames["print_frame"].document.title = document.title;
+            window.frames["print_frame"].document.body.innerHTML = isi;
             window.frames["print_frame"].window.focus();
             window.frames["print_frame"].window.print();
         }
