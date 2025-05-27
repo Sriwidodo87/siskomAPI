@@ -94,7 +94,7 @@
                 <tr>
                     <td>
                         <div align="left">
-                            <img src="../assets/img/kandou1.jpg" style="height:75 px;">
+                            <img src="{{asset('storage/kandou1.jpg')}}" style="height:75 px;">
                             {{-- <img src="{{asset('assets/img/kandou1.jpg')}}" style="height:75 px;"> --}}
                         </div>
                     </td>
@@ -110,7 +110,7 @@
                     </td> --}}
                     <td>
                         <div align="right">
-                             <img src="../assets/img/kandou2.jpg" style="height:75 px;">
+                             <img src="{{asset('storage/kandou2.jpg')}}" style="height:75 px;">
                              {{-- <img src="{{asset('assets/img/kandou2.jpg')}}" style="height:75 px;" > --}}
                    </div>
                     </td>
