@@ -49,8 +49,8 @@
                                                 href="{{ route('distribusi.edit', $distribusi->id) }}">Edit</a>
                                             {{-- <a class="btn btn-primary"
                                                 href="{{ route('distribusi.show', $distribusi->id) }}">Print</a> --}}
-                                            <a class="btn btn-primary"
-                                                href="{{ route('generatePDF', $distribusi->id) }}">pdf</a>
+                                            {{-- <a class="btn btn-primary"
+                                                href="{{ route('generatePDF', $distribusi->id) }}">pdf</a> --}}
                                             <a id="print" href="" data-id="{{ $distribusi->id }}" class="btn btn-info">
                                                 <i class="fas fa-print"></i> </a
 
