@@ -2,10 +2,10 @@
 @section('title', '')
 @section('content')
 
-    <div id="tampilan_print" style="display:none">
-        <style>
+ <style>
             @page {
                 margin-left: 2cm;
+                margin-top:0.1cm;
             }
 
             .font_header_kop {
@@ -29,23 +29,25 @@
                 <tr>
                     <td>
                         <div align="left">
-                            <img src="" class="img_header" style="height: 75px;">
+                            <img src="{{asset('storage/kandou1.jpg')}}" style="height:75 px;">
+                            {{-- <img src="{{asset('assets/img/kandou1.jpg')}}" style="height:75 px;"> --}}
                         </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div>
                             <center>
-                               sri widododod KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
+                                KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
                                 DIREKTORAT JENDRAL PELAYANAN KESEHATAN<br>
                                 RSUP PROF. DR. R. D. KANDOU MANADO <br>
                                 JL.RAYA TANAWANGKO PO.BOX 102 MANADO <br>
                             </center>
                         </div>
-                    </td>
+                    </td> --}}
                     <td>
                         <div align="right">
-                            <img src=" " class="img_header" style="height: 75px;">
-                        </div>
+                             <img src="{{asset('storage/kandou2.jpg')}}" style="height:75 px;">
+                             {{-- <img src="{{asset('assets/img/kandou2.jpg')}}" style="height:75 px;" > --}}
+                   </div>
                     </td>
                 </tr>
             </table>
@@ -60,22 +62,18 @@
             <tr>
                 <td>
                     <div align="right">
-
                     </div>
 
                 </td>
                 <td>
                     <div align="center">
-
                     </div>
                 </td>
                 <td>
                     <div align="right">
                         <h3>
-                            <p id="no_form"></p>
+                            <p id="nomer_surat">{{$data->nomer_surat}}
                         </h3>
-
-
                     </div>
                 </td>
             </tr>
@@ -85,103 +83,79 @@
 
 
         <table id="mytable">
-            <tr>
-                <td>Tanggal Permintaan</td>
+            <tr >
+                <td style="font-size:1.0em;">Tanggal Permintaan</td>
                 <td>:</td>
                 <td>
-                    <p id="trx_date2">
-                    </p>
+                   {{$data->tanggal_permintaan}}
                 </td>
             </tr>
             <tr>
-                <td> Reference</td>
+                <td> Unit Kerja</td>
                 <td>:</td>
                 <td>
-                    <p id="reference2"></p>
+                   {{$data->unit_kerja}}
                 </td>
             </tr>
             <tr>
-                <td> Ke Unit kerja </td>
+                <td>Pemindahan / Penambahan</td>
                 <td>:</td>
                 <td>
-                    <p id="nm_instansi"> </p>
-                </td>
-                <td>
-                    <p id="sub_instansi"> </p>
+                   {{$data->jenis_distribusi}}
                 </td>
             </tr>
             <tr>
-                <td> Status</td>
+                <td> Status Barang </td>
                 <td> :</td>
                 <td>
-                    <p id="status2"></p>
+                  {{$data->status_barang}}
                 </td>
             </tr>
             <tr>
-                <td>Produk </td>
+                <td>Alasan </td>
                 <td>:</td>
                 <td>
-                    <p id="produk2"></p>
+                    <p id="alasan">{{$data->alasan}}</p>
                 </td>
                 <td></td>
                 <td></td>
-                <td>QTY</td>
+                <td>tujuan</td>
                 <td>
                     :
                 </td>
                 <td>
-                    <p id="qty2"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>Serial Number </td>
-                <td>:</td>
-                <td>
-                    <p id="sn2"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>Alasan</td>
-                <td>:</td>
-                <td>
-                    <p id="alasan2"></p>
+                   {{$data->tujuan}}
                 </td>
             </tr>
             <tr>
                 <td>Kategori</td>
                 <td>:</td>
                 <td>
-                    <p id="kat2"></p>
+                   {{$data->kategori_distribusi}}
                 </td>
             </tr>
             <tr>
-                <td>Kebijakan</td>
+                <td>Kebijakan / Prosedur yang mendukung*</td>
                 <td>:</td>
                 <td>
-                    <p id="kebijakan2"></p>
+                   {{$data->prosedur}}
                 </td>
             </tr>
             <tr>
                 <td>Tanggal Mulai</td>
                 <td>:</td>
                 <td>
-                    <p id="tgl_mulai2"></p>
+                   {{$data->tanggal_mulai}}
                 </td>
             </tr>
             <tr>
                 <td>Tanggal Selesai</td>
                 <td>:</td>
                 <td>
-                    <p id="tgl_selesai2"></p>
+                   {{$data->tanggal_selesai}}
                 </td>
-            </tr>
-            <tr>
-                <td>Diketahui Oleh</td>
-                <td>:</td>
-                <td>
-                    <p id="diket2"></p>
-                </td>
-            </tr>
+
+
         </table>
 
         <table width=100%>
@@ -193,10 +167,7 @@
                                 <td>Pemohon</td>
                             </tr>
                             <tr class="tr">
-
                             </tr>
-
-
 
                             <tr>
                                 <td>
@@ -205,6 +176,7 @@
                             </tr>
                             <tr>
                                 <td>
+                                    {{$data->pemohon}}
                                     <p>NIP.</p>
                                 </td>
                             </tr>
@@ -213,22 +185,7 @@
                 </td>
                 <td>
                     <div align="center" class="ttd">
-                        <table>
-                            <tr>
-                                <td></td>
-                            </tr>
-                            <tr class="tr">
 
-                            </tr>
-
-
-                            <tr>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                            </tr>
-                        </table>
 
 
                     </div>
@@ -240,19 +197,16 @@
                                 <td> Menyetujui ka. Instalasi SIMRS</td>
                             </tr>
                             <tr class="tr">
-
-                            </tr>
-
-
-                            <tr>
-                                <td>
-                                    <p id="ki2"></p>
-                                </td>
                             </tr>
                             <tr>
-                                <td id="nip2">NIP</td>
-
+                                <td>Patrick M. Andries, ST, MBA, QWP </td>
                             </tr>
+                            <tr><td>NIK. 1990052720170510895</td> </tr>
+
+
+
+
+
                         </table>
 
 
@@ -260,11 +214,8 @@
                 </td>
 
             </tr>
-
         </table>
 
-    </div>
-    <iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
 
 @endsection
 @section('scripts')

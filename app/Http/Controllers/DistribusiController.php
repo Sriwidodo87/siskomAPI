@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Distribusi;
+use PDF;
 use Illuminate\Support\Facades\DB;
 
 
@@ -144,5 +145,13 @@ class DistribusiController extends Controller
         return redirect()->route('distribusi.index')
         ->with('success','Distribusi deleted successfully');
     }
+
+ public function generatePDF($id)
+    {
+          $data = Distribusi::findOrFail($id);
+             $pdf = PDF::loadView('distribusi.cetak_pdf',compact('data'));
+                 return $pdf->download('Infrastruktur_distribusi.pdf');
+    }
+
 }
 

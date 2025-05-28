@@ -76,8 +76,8 @@
                             </div>
                             <div class="form-group col-12">
                                 <label>Alasan</label>
-                                <textarea type="text" name="alasan" id="alasan" class="form-control" required>
-                                </textarea>
+                                <textarea type="text" name="alasan" id="alasan" class="form-control" required></textarea>
+
                             @error('alasan')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
