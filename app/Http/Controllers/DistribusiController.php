@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Distribusi;
-use App\Models\User;
 use PDF;
 use Illuminate\Support\Facades\DB;
 
@@ -147,19 +146,11 @@ class DistribusiController extends Controller
         ->with('success','Distribusi deleted successfully');
     }
 
- public function generatePDF()
+ public function generatePDF($id)
     {
-        $users = User::get();
-
-        $data = [
-            'title' => 'Welcome to ItSolutionStuff.com',
-            'date' => date('m/d/Y'),
-            'users' => $users
-        ];
-
-         $pdf = PDF::loadView('/distribusi/myPdf', $data);
-
-         return $pdf->download('itsolutionstuff.pdf');
+          $data = Distribusi::findOrFail($id);
+             $pdf = PDF::loadView('distribusi.cetak_pdf',compact('data'));
+                 return $pdf->download('Infrastruktur_distribusi.pdf');
     }
 
 }

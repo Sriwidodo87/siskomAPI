@@ -79,7 +79,7 @@
                             </div>
                             <div class="form-group col-12">
                                 <label>Alasan</label>
-                                <textarea  name="alasan" id="alasan" class="form-control" >{{$Distribusi->alasan}}</textarea>
+                                <textarea  name="alasan" type ="text" id="alasan" class="form-control" >{{$Distribusi->alasan}}</textarea>
 
 
                             @error('alasan')
