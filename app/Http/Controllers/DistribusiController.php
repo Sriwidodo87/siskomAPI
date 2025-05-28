@@ -40,7 +40,7 @@ class DistribusiController extends Controller
         $ym= now()->format('Y/m');
         $maxID= Distribusi::whereMonth('tanggal_permintaan',$d)->count();
         $nextID = $maxID + 1 ;
-        $nomer_surat= $ym.'-'. sprintf("%03s",$nextID);
+        $nomer_surat= $ym.'/'. sprintf("%03s",$nextID);
 
 
         $request->validate([
