@@ -47,6 +47,8 @@
                                         <td>
                                             <a class="btn btn-primary"
                                                 href="{{ route('distribusi.edit', $distribusi->id) }}">Edit</a>
+                                            <a class="btn btn-primary"
+                                                href="{{ route('distribusi.show', $distribusi->id) }}">pdf</a>
                                             {{-- <a  class="btn btn-danger delete"
                                                 data-toggle="modal"
                                                 data-target="#exampleModal" id="{{ $distribusi->id }}">

@@ -1,9 +1,10 @@
-@extends('layouts.master')
-@section('title', '')
-@section('content')
-<h1>text</h1>
-    <div id="tampilan_print" style="display:none">
-        <style>
+<!DOCTYPE html>
+<html>
+<head></title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+</head>
+<body>
+    <style>
             @page {
                 margin-left: 2cm;
             }
@@ -29,22 +30,19 @@
                 <tr>
                     <td>
                         <div align="left">
-                            <img src="" class="img_header" style="height: 75px;">
+                           <img src="/public/assets/img/kandou1.jpg" style="height:75 px;"
                         </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div>
                             <center>
-                               sri widododod KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>
-                                DIREKTORAT JENDRAL PELAYANAN KESEHATAN<br>
-                                RSUP PROF. DR. R. D. KANDOU MANADO <br>
-                                JL.RAYA TANAWANGKO PO.BOX 102 MANADO <br>
+
                             </center>
                         </div>
-                    </td>
+                    </td> --}}
                     <td>
                         <div align="right">
-                            <img src=" " class="img_header" style="height: 75px;">
+                            <img src="/public/assets/img/kandou2.jpg" style="height:75 px;">
                         </div>
                     </td>
                 </tr>
@@ -263,10 +261,5 @@
 
         </table>
 
-    </div>
- <iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
-
-@endsection
-@section('scripts')
-
-@endsection
+</body>
+</html>

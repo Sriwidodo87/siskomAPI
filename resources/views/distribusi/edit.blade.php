@@ -77,11 +77,11 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             </div>
-                            <div class="form-group col-12 ">
+                            <div class="form-group col-12">
                                 <label>Alasan</label>
-                                <textarea type="text" name="alasan" id="alasan" class="form-control  text-left" rows="4" cols="50" >
-                                    {{$Distribusi->alasan}}
-                                </textarea>
+                                <textarea  name="alasan" id="alasan" class="form-control" >{{$Distribusi->alasan}}</textarea>
+
+
                             @error('alasan')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
