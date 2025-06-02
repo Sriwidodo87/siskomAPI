@@ -30,11 +30,12 @@
                         </ul>
                       </div>
                     @endif
-                        <form action="{{ route('distribusi.update_upload',$Distribusi->id) }}" method="POST" enctype="multipart/form-data">
+
+                    <form action="{{ route('distribusi.update_upload',$Distribusi->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                         @method('PUT')
+                         {{-- @method('PUT') --}}
                         <div class="card-body ">
-                            <input type="hidden" name="id" value="{{$Distribusi->id}}">
+                            <input type="text" name="id" value="{{$Distribusi->id}}">
                             <div class="row">
                              <div class="form-group col-4 ">
                                 <label>File Upload</label>
@@ -44,6 +45,9 @@
                             @enderror
                             </div>
                             </div>
+                        </div>
+                        <div class="form-group col-4">
+                                <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

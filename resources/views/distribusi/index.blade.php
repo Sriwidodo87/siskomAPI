@@ -45,18 +45,22 @@
                                         <td>{{ $distribusi->unit_kerja }}</td>
                                         <td>{{ $distribusi->tujuan }}</td>
                                         <td>
-                                            <a class="btn btn-primary"
-                                                href="{{ route('distribusi.edit', $distribusi->id) }}">Edit</a>
-                                            <a class="btn btn-primary"
-                                                href=""><i class="fas fa-upload"></i></a>
+                                          @if ($distribusi->uploads == "")
+                                             <a class="btn btn-primary" href="{{ route('distribusi.edit', $distribusi->id) }}">Edit</a>
+                                             <a class="btn btn-primary"
+                                                 href="{{ route('upload_file', $distribusi->id) }}"><i class="fas fa-upload"></i></a>
+                                          @endif
+
+                                            @if ($distribusi->uploads)
+                                             <a class="btn btn-warning" href="{{ route('distribusi.viewPdf', $distribusi->id) }} " target="_blank"><i class="fas fa-eye"></i></a>
+                                            @endif
+
+                                            <a id="print" href="" data-id="{{ $distribusi->id }}" class="btn btn-info"> <i class="fas fa-print"></i> </a
+
                                             {{-- <a class="btn btn-primary"
                                                 href="{{ route('distribusi.show', $distribusi->id) }}">Print</a> --}}
                                             {{-- <a class="btn btn-primary"
                                                 href="{{ route('generatePDF', $distribusi->id) }}">pdf</a> --}}
-                                            <a id="print" href="" data-id="{{ $distribusi->id }}" class="btn btn-info"> <i class="fas fa-print"></i> </a
-
-
-
                                             {{-- <a  class="btn btn-danger delete"
                                                 data-toggle="modal"
                                                 data-target="#exampleModal" id="{{ $distribusi->id }}">

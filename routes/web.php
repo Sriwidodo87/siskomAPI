@@ -20,4 +20,7 @@ Route::resource('/distribusi', App\Http\Controllers\DistribusiController::class,
 
 // Route::get('generate-pdf', [DistribusiController::class, 'generatePDF'])->name('generatePDF');
 Route::get('generate-pdf/{id}',[DistribusiController::class, 'generatePDF'])->name('generatePDF');
+Route::get('upload_file-pdf/{id}',[DistribusiController::class, 'upload_file'])->name('upload_file');
+Route::post('distribusi/update_upload/{id}',[DistribusiController::class, 'update_upload'])->name('distribusi.update_upload');
 // Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('distribusi/viewPdf/{id}',[DistribusiController::class, 'viewPdf'])->name('distribusi.viewPdf');

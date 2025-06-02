@@ -82,7 +82,6 @@ class DistribusiController extends Controller
         $data = Distribusi::findOrFail($id);
         $page_title ="List ID   ";
         // return view('distribusi.show',compact('data','page_title'));
-
        return response()->json($data);
     }
 
@@ -148,9 +147,9 @@ class DistribusiController extends Controller
 
  public function generatePDF($id)
     {
-          $data = Distribusi::findOrFail($id);
-             $pdf = PDF::loadView('distribusi.cetak_pdf',compact('data'));
-                 return $pdf->download('Infrastruktur_distribusi.pdf');
+            $data = Distribusi::findOrFail($id);
+            $pdf = PDF::loadView('distribusi.cetak_pdf',compact('data'));
+            return $pdf->download('Infrastruktur_distribusi.pdf');
     }
 
 
@@ -163,21 +162,55 @@ class DistribusiController extends Controller
 
     public function update_upload(Request $request, string $id){
 
-        $request->validate([
-            'file' => 'required|mimes:pdf|max:2048', // Example validation rules
-        ]);
-        $file = $request->file('file');
-        $fileName = time() . '_' . $file->getClientOriginalName();
-        $filePath = $file->storeAs('uploads', $fileName);
         $Distribusis = Distribusi::findOrFail($id);
-        $Distribusis->update([
-            'name' => $fileName,
-            'path' => $filePath,
-        ]);
+        $no_surat= $Distribusis->nomer_surat;
 
-           return redirect()->route('distribusi.index')
-        ->with('success','Upload successfully');
+       $request->validate([
+            'uploads' => 'required|mimes:pdf|max:2048', // Example validation rules
+        ]);
+        $file = $request->file('uploads');
+         $fileName =$file->getClientOriginalName();
+        //  $fileName =$no_surat . '_' . $file->getClientOriginalName();
+
+        $filePath = $file->storeAs('uploads', $fileName);
+
+        $Distribusis->update([
+            'uploads'=> $fileName,
+             ]);
+        return redirect()->route('distribusi.index')
+        ->with('success','Distribusi Upload   Successfully');
     }
 
+
+    public function viewPdf($id){
+        $pdf = Distribusi::findOrFail($id);
+        $filename = $pdf->uploads;
+
+        // $filePath = storage_path($filename);
+        $filePath = storage_path('app/private/uploads/' . $filename);
+
+
+
+            if (file_exists($filePath))
+            {
+            // $headers = ['Content-Type' => 'application/pdf'];
+            // $headers = ['Content-Type' => 'application/pdf'];
+            // $headers = ['Content-Type' => 'application/pdf'];
+            header('Content-Type:'. 'application/pdf');
+            header("Content-Length: " . filesize($filePath));
+            // return response()->download($filePath, 'Test File', $headers, 'inline');
+            // return response()->stream($filePath);
+            // return  $filePath ->stream();
+             // Send the file to the browser.
+                 readfile($filePath);
+                  exit;
+
+            // return `<iframe src="$filePath" frameborder="0" width="50%" height="600"></iframe>`;
+            } else {
+            abort(404, 'File not found!');
+            }
+
+
+    }
 }
 
