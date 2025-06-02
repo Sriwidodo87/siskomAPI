@@ -116,7 +116,7 @@ class DistribusiController extends Controller
             'pemohon'=> 'required',
         ]);
          $Distribusis = Distribusi::findOrFail($id);
-        $Distribusis->update([
+         $Distribusis->update([
             'nomer_surat'=> $request->nomer_surat,
             'tanggal_permintaan'=> $request->tanggal_permintaan,
             'unit_kerja'=> $request->unit_kerja,
@@ -151,6 +151,32 @@ class DistribusiController extends Controller
           $data = Distribusi::findOrFail($id);
              $pdf = PDF::loadView('distribusi.cetak_pdf',compact('data'));
                  return $pdf->download('Infrastruktur_distribusi.pdf');
+    }
+
+
+     public function upload_file(string $id)
+    {
+        $Distribusi = Distribusi::findOrFail($id);
+        $page_title ="Update Distribusi  ";
+        return view('distribusi.upload',compact('Distribusi','page_title'));
+    }
+
+    public function update_upload(Request $request, string $id){
+
+        $request->validate([
+            'file' => 'required|mimes:pdf|max:2048', // Example validation rules
+        ]);
+        $file = $request->file('file');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $filePath = $file->storeAs('uploads', $fileName);
+        $Distribusis = Distribusi::findOrFail($id);
+        $Distribusis->update([
+            'name' => $fileName,
+            'path' => $filePath,
+        ]);
+
+           return redirect()->route('distribusi.index')
+        ->with('success','Upload successfully');
     }
 
 }
