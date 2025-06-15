@@ -35,7 +35,7 @@
                         @csrf
                          {{-- @method('PUT') --}}
                         <div class="card-body ">
-                            <input type="text" name="id" value="{{$Distribusi->id}}">
+                            <input type="hidden" name="id" value="{{$Distribusi->id}}">
                             <div class="row">
                              <div class="form-group col-4 ">
                                 <label>File Upload</label>
