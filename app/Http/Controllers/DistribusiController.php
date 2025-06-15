@@ -194,18 +194,16 @@ class DistribusiController extends Controller
             if (file_exists($filePath))
             {
             // $headers = ['Content-Type' => 'application/pdf'];
-            // $headers = ['Content-Type' => 'application/pdf'];
-            // $headers = ['Content-Type' => 'application/pdf'];
             header('Content-Type:'. 'application/pdf');
             header("Content-Length: " . filesize($filePath));
             // return response()->download($filePath, 'Test File', $headers, 'inline');
             // return response()->stream($filePath);
             // return  $filePath ->stream();
-             // Send the file to the browser.
-                 readfile($filePath);
-                  exit;
 
-            // return `<iframe src="$filePath" frameborder="0" width="50%" height="600"></iframe>`;
+            // Send the file to the browser.
+            readfile($filePath);
+            exit;
+
             } else {
             abort(404, 'File not found!');
             }

@@ -179,9 +179,12 @@
                 <td>Pemindahan / Penambahan</td>
                 <td>:</td>
                 <td>
-                    <p id="jenis_distribusi"> </p>
+                    <pre id="jenis_distribusi"></pre>
                 </td>
             </tr>
+            <br>
+            <br>
+            <br>
             <tr>
                 <td> Status Barang </td>
                 <td> :</td>

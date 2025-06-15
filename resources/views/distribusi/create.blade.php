@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group col-6">
                                 <label>Pemindahan / Penambahan</label>
-                                <input type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" placeholder="Pemindahan / Penambahan Printer " required>
+                                <textarea type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" placeholder="Pemindahan / Penambahan Printer " required></textarea>
                             @error('jenis_distribusi')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
