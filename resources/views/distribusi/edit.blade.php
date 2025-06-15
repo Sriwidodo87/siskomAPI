@@ -59,7 +59,7 @@
                             </div>
                             <div class="form-group col-6">
                                 <label>Pemindahan / Penambahan</label>
-                                <input type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" value="{{$Distribusi->jenis_distribusi}}">
+                                <textarea type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" cols="30" rows="10" >{{$Distribusi->jenis_distribusi}}</textarea>
                             @error('jenis_distribusi')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -69,8 +69,8 @@
                                 <select name="status_barang" id="status_barang" class="form-control" required>
                                             <option value=""></option>
 
-                                            <option value="BARU" {{$Distribusi->status_barang == 'BARU' ? 'selected' : ''}}> BARU</option>
-                                            <option value="PINDAH" {{$Distribusi->status_barang == 'PINDAH' ? 'selected' : ''}}> PINDAH</option>
+                                            <option value="Baru" {{$Distribusi->status_barang == 'Baru' ? 'selected' : ''}}> Baru</option>
+                                            <option value="Pindah" {{$Distribusi->status_barang == 'Pindah' ? 'selected' : ''}}> Pindah</option>
 
                                         </select>
                             @error('status_barang')
@@ -97,8 +97,8 @@
                                 <label>Kategori Distribusi</label>
                                  <select name="kategori_distribusi" id="kategori_distribusi" class="form-control">
                                             <option value=""></option>
-                                            <option value="MENDESAK" {{$Distribusi->kategori_distribusi == 'MENDESAK' ? 'selected' : ''}}> MENDESAK</option>
-                                            <option value="TIDAK MENDESAK"{{$Distribusi->kategori_distribusi == 'TIDAK MENDESAK' ? 'selected' : ''}}> TIDAK MENDESAK</option>
+                                            <option value="Mendesak" {{$Distribusi->kategori_distribusi == 'Mendesak' ? 'selected' : ''}}> Mendesak</option>
+                                            <option value="Tidak Mendesak"{{$Distribusi->kategori_distribusi == 'Tidak Mendesak' ? 'selected' : ''}}> Tidak Mendesak</option>
 
                                         </select>
                             @error('kategori_distribusi')
@@ -109,8 +109,8 @@
                                 <label>Prosedur</label>
                                 <select name="prosedur" id="prosedur" class="form-control">
                                             <option value=""></option>
-                                            <option value="TIDAK ADA"{{$Distribusi->prosedur == 'TIDAK ADA' ? 'selected' : ''}}>TIDAK ADA</option>
-                                            <option value="ADA" {{$Distribusi->prosedur == 'ADA' ? 'selected' : ''}}>ADA</option>
+                                            <option value="Tidak Ada"{{$Distribusi->prosedur == 'Tidak Ada' ? 'selected' : ''}}>Tidak Ada</option>
+                                            <option value="Ada" {{$Distribusi->prosedur == 'Ada' ? 'selected' : ''}}>Ada</option>
                                         </select>
                             @error('prosedur')
                                 <p class="text-danger">{{ $message }}</p>

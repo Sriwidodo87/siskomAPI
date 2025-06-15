@@ -99,6 +99,11 @@
             .tr {
                 height: 90px;
             }
+            pre{
+
+                font-family:Times New Roman;
+            }
+
         </style>
         <title></title>
         <center>
@@ -106,7 +111,8 @@
                 <tr>
                     <td>
                         <div align="left">
-                            <img src="{{url(asset('storage/kandou1.jpg'))}}"  style="height:75 px;">
+                            {{-- <img src="{{asset('storage/kandou1.jpg')}}"  style="height:75 px;"> --}}
+                            <img src="{{ Storage::url('kandou1.jpg') }}" style="height:75 px;">
                             {{-- <img src="{{asset('assets/img/kandou1.jpg')}}" style="height:75 px;"> --}}
                         </div>
                     </td>
@@ -122,7 +128,8 @@
                     </td> --}}
                     <td>
                         <div align="right">
-                             <img src="{{url(asset('storage/kandou2.jpg'))}}"  style="height:75 px;">
+                             {{-- <img src="{{asset('storage/kandou2.jpg')}}"  style="height:75 px;"> --}}
+                            <img src="{{ Storage::url('kandou2.jpg') }}" style="height:75 px;">
                              {{-- <img src="{{asset('assets/img/kandou2.jpg')}}" style="height:75 px;" > --}}
                    </div>
                     </td>
@@ -159,9 +166,9 @@
         <br>
 
 
-        <table id="mytable">
-            <tr >
-                <td style="font-size:1.0em;">Tanggal Permintaan</td>
+        <table id="mytable" style="font-size:1.0em;font-family:Times New Roman;">
+            <tr>
+                <td>Tanggal Permintaan</td>
                 <td>:</td>
                 <td>
                     <p id="tanggal_permintaan">
@@ -179,7 +186,7 @@
                 <td>Pemindahan / Penambahan</td>
                 <td>:</td>
                 <td>
-                    <pre id="jenis_distribusi"></pre>
+                  <pre id="jenis_distribusi" ></pre>
                 </td>
             </tr>
             <br>
@@ -198,11 +205,9 @@
                 <td>
                     <p id="alasan"></p>
                 </td>
-
-
             </tr>
             <tr>
-                 <td>tujuan</td>
+                 <td>Tujuan</td>
                 <td>
                     :
                 </td>
@@ -294,7 +299,7 @@
                     <div align="right" class="ttd">
                         <table>
                             <tr>
-                                <td> Menyetujui ka. Instalasi SIMRS</td>
+                                <td>Menyetujui ka. Instalasi SIMRS</td>
                             </tr>
                             <tr class="tr">
 
@@ -410,7 +415,5 @@
             window.frames["print_frame"].window.focus();
             window.frames["print_frame"].window.print();
         }
-
-
     </script>
 @endsection

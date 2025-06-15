@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group col-6">
                                 <label>Pemindahan / Penambahan</label>
-                                <textarea type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" placeholder="Pemindahan / Penambahan Printer " required></textarea>
+                                <textarea type="text" name="jenis_distribusi" id="jenis_distribusi" class="form-control" placeholder="Pemindahan / Penambahan Printer " class="form-control" cols="30" rows="10" required></textarea>
                             @error('jenis_distribusi')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -67,8 +67,8 @@
                                 <label>Status Barang</label>
                                <select name="status_barang" id="status_barang" class="form-control" required>
                                             <option value=""></option>
-                                            <option value="BARU">BARU</option>
-                                            <option value="PINDAH">PINDAH</option>
+                                            <option value="Baru">Baru</option>
+                                            <option value="Pindah">Pindah</option>
                                         </select>
                             @error('status_barang')
                                 <p class="text-danger">{{ $message }}</p>
@@ -93,8 +93,8 @@
                                 <label>Kategori Distribusi</label>
                                 <select name="kategori_distribusi" id="kategori_distribusi" class="form-control" required>
                                             <option value=""></option>
-                                            <option value="MENDESAK"> MENDESAK</option>
-                                            <option value="TIDAK MENDESAK"> TIDAK MENDESAK</option>
+                                            <option value="Mendesak">Mendesak</option>
+                                            <option value="Tidak Mendesak"> Tidak Mendesak</option>
                                         </select>
                             @error('kategori_distribusi')
                                 <p class="text-danger">{{ $message }}</p>
@@ -104,8 +104,8 @@
                                 <label>Prosedur</label>
                                 <select name="prosedur" id="prosedur" class="form-control" required>
                                             <option value=""></option>
-                                            <option value="TIDAK ADA">TIDAK ADA</option>
-                                            <option value="ADA">ADA</option>
+                                            <option value="Tidak Ada">Tidak Ada</option>
+                                            <option value="Ada">Ada</option>
                                         </select>
                             @error('prosedur')
                                 <p class="text-danger">{{ $message }}</p>
